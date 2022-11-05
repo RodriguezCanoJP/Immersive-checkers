@@ -29,7 +29,7 @@ namespace CF{
     bool resetFlag = false; //Reset the game
     bool refreshFlag = false; //Refresh the scene
 
-    bool whiteAIFlag = false; //Is white AI-controlled?
+    bool whiteAIFlag = true; //Is white AI-controlled?
     bool blackAIFlag = false; //Is black AI-controlled?
     bool playerMovingFlag = false; //Avoids interrupting
 }
@@ -101,55 +101,6 @@ void drawSceneBoard( QGraphicsScene & scene){
         playButton->setText("Play!");
         scene.addWidget(playButton);
     }
-
-    QComboBox *comboBox = new QComboBox;
-    comboBox->setFont(QFont("Arial", 14));
-    comboBox->setGeometry(620+75, 105, 240/*120*/, 30);
-    comboBox->setFrame(true);
-    comboBox->addItem(QString("Select Board Layout  \u25BC"), 0); //unicode down pointer
-    comboBox->addItem(QString("Standard"), Standard);
-    comboBox->addItem(QString("Kings"), Kings);
-    comboBox->addItem(QString("Jumpalicious"), Jumpalicious);
-    comboBox->addItem(QString("TwoRows"), TwoRows);
-    comboBox->addItem(QString("Create Custom Board"), CustomBoardCreate);
-    if(CF::editedCustomBoardFlag) comboBox->addItem(QString("Play Custom Board"), CustomBoardPlay);
-    QObject::connect(comboBox, QOverload<int>::of(&QComboBox::activated),
-                     [&](int index){ if (index != 0) CV::boardLayout = index; else CV::boardLayout = Standard; });
-    scene.addWidget(comboBox);
-
-    QCheckBox *checkboxWhiteAI = new QCheckBox;
-    checkboxWhiteAI->setFont(QFont("Arial", 14));
-    checkboxWhiteAI->setText("White AI");
-    checkboxWhiteAI->setGeometry(QRect(620 + 75 + 240, 75, 120, 30));
-    checkboxWhiteAI->setCheckState(CF::whiteAIFlag ? Qt::Checked : Qt::Unchecked);
-    QObject::connect(checkboxWhiteAI, QOverload<int>::of(&QCheckBox::stateChanged),
-                     [&](){ CF::whiteAIFlag = !CF::whiteAIFlag; CF::refreshFlag = true; });
-    scene.addWidget(checkboxWhiteAI);
-
-    QCheckBox *checkboxBlackAI = new QCheckBox;
-    checkboxBlackAI->setFont(QFont("Arial", 14));
-    checkboxBlackAI->setText("Black AI");
-    checkboxBlackAI->setGeometry(QRect(620 + 75 + 240, 100, 120, 30));
-    checkboxBlackAI->setCheckState(CF::blackAIFlag ? Qt::Checked : Qt::Unchecked);
-    QObject::connect(checkboxBlackAI, QOverload<int>::of(&QCheckBox::stateChanged),
-                     [&](){ CF::blackAIFlag = !CF::blackAIFlag; CF::refreshFlag = true;});
-    scene.addWidget(checkboxBlackAI);
-
-
-    QPushButton *authorInfoButton = new QPushButton;
-    QObject::connect(authorInfoButton, &QPushButton::clicked, [](){
-        //Pop up to show author info
-        QMessageBox::information(0, QString("Author info"),
-                                 QString("This Checkers GUI was created by Bryce Dombrowski, using C++ and Qt.\n"
-                                         "Links:\n"
-                                         "https://github.com/fwacer/Checkers-Game\n"
-                                         "https://brycedombrowski.com/2018/01/13/winter-2017-18-checkers-game-gui/"), QMessageBox::Ok);
-    });
-    authorInfoButton->setFont(QFont("Arial", 14));
-    authorInfoButton->setGeometry(QRect(620 + 75 + 130, 75 + 60, 110, 30));
-    authorInfoButton->setText("Author Info");
-    scene.addWidget(authorInfoButton);
-
     //std::map<std::pair<char, char>, QGraphicsItem> visualBoard;
     QGraphicsItem *BackdropItem = new Backdrop(); //can accept drops and return an error if the user misses dropping on a valid square
     scene.addItem(BackdropItem);
