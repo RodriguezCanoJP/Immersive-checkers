@@ -1,0 +1,5 @@
+/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/CMakeFiles/proyecto2.dir
+/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/CMakeFiles/proyecto2_autogen_timestamp_deps.dir
+/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/CMakeFiles/proyecto2_autogen.dir

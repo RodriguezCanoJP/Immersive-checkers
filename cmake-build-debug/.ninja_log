@@ -1,0 +1,17 @@
+# ninja log v5
+30	748	1667663034639463566	CMakeFiles/proyecto2.dir/checkersgame.cpp.o	4438729205899d98
+30	744	1667663034635023957	CMakeFiles/proyecto2.dir/ai.cpp.o	82e944b4dd02f0eb
+30	254	1667663034145096504	CMakeFiles/proyecto2.dir/backdrop.cpp.o	27c0ca1d65b51c3d
+976	1180	1667663035074089050	proyecto2	1084c00710217371
+30	976	1667663034866120920	CMakeFiles/proyecto2.dir/main.cpp.o	6537cba4b6d3c0c8
+6	29	1667663033924508085	/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/proyecto2_autogen/mocs_compilation.cpp	407078a21ed9530a
+6	29	1667663033924508085	proyecto2_autogen/timestamp	407078a21ed9530a
+37	57	1667534158762750438	CMakeFiles/proyecto2.dir/proyecto2_autogen/mocs_compilation.cpp.o	607fee5c352369d2
+6	29	1667663033924508085	/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/proyecto2_autogen/timestamp	407078a21ed9530a
+6	29	1667663033924508085	proyecto2_autogen/mocs_compilation.cpp	407078a21ed9530a
+0	417	1667666918611804558	build.ninja	145e5a66178ec482
+8	22	1667666918641825964	proyecto2_autogen/timestamp	407078a21ed9530a
+8	22	1667666918641825964	proyecto2_autogen/mocs_compilation.cpp	407078a21ed9530a
+8	22	1667666918641825964	/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/proyecto2_autogen/timestamp	407078a21ed9530a
+8	22	1667666918641825964	/Users/juanpablorodriguez/CLionProjects/proyecto2/cmake-build-debug/proyecto2_autogen/mocs_compilation.cpp	407078a21ed9530a
+22	207	1667666918823584302	proyecto2	1c5cbd06043a2dfd
