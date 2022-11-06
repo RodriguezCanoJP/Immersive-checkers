@@ -93,6 +93,12 @@
 			null
 		],
 		[
+			"/Users/juanpablorodriguez/CLionProjects/proyecto2/backtracking.h",
+			"MU",
+			"EWIEGA46WW/moc_backtracking.cpp",
+			null
+		],
+		[
 			"/Users/juanpablorodriguez/CLionProjects/proyecto2/boardpiece.h",
 			"MU",
 			"EWIEGA46WW/moc_boardpiece.cpp",
@@ -169,6 +175,11 @@
 	[
 		[
 			"/Users/juanpablorodriguez/CLionProjects/proyecto2/ai.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/juanpablorodriguez/CLionProjects/proyecto2/backtracking.cpp",
 			"MU",
 			null
 		],

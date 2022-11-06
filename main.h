@@ -14,12 +14,7 @@ namespace CV{static const std::vector<std::string> gameStateVector = {"Invalid M
 namespace CF{static bool userCreatingBoardFlag = false;}
 
 typedef enum BoardLayout{
-    Standard = 1,
-    Kings,
-    Jumpalicious,
-    TwoRows,
-    CustomBoardCreate,
-    CustomBoardPlay
+    Standard = 1
 }BoardLayout;
 
 class GraphicsView : public QGraphicsView

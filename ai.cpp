@@ -7,11 +7,6 @@
 
 std::pair<int, std::pair<char, char>> findBestJumpMoveAI(const std::map<std::pair<char, char>, char> &gameBoard,
                                                          const std::pair<char, char> &from){
-    //Code look familiar? Much of it was written in checkersgame.cpp
-    //It needed to now be modified to suit the AI, and copying the base tree explorer was easier then re-writing.
-
-    //TODO: extra points for jumping kings
-    //Optimise, currently very very slow (for what it should be) (probably too many "finds")
 
     std::set<std::pair<char, char>> possibilities {}; //squares that need to be searched
     std::set<std::pair<char, char>> searchedPossibilities{}; //squares that were already searched through
@@ -122,25 +117,7 @@ std::pair<char, char> findSingleSquareMoveAI(const std::map<std::pair<char, char
     char playerPiece = gameBoard.find(from)->second;
     auto it = gameBoard.find(std::make_pair(from.first + 1, from.second + 1));
 
-    if (playerPiece == pieces[Black] || playerPiece == pieces[BlackKing] || playerPiece == pieces[WhiteKing]) { //Pieces that can move up
-        //top right square
-        it = gameBoard.find(std::make_pair(from.first + 1, from.second + 1));
-        if(it != gameBoard.end()){
-            if(it->second == pieces[Empty]){ //if the square is empty
-                possibleMoves.push_back(it->first);
-            }
-        }
-
-        //top left square
-        it = gameBoard.find(std::make_pair(from.first - 1, from.second + 1));
-        if(it != gameBoard.end()){
-            if(it->second == pieces[Empty]){ //if the square is empty
-                possibleMoves.push_back(it->first);
-            }
-        }
-
-    }
-    if (playerPiece == pieces[White] || playerPiece == pieces[BlackKing] || playerPiece == pieces[WhiteKing]) { // Pieces that can move up
+    if (playerPiece == pieces[White] || playerPiece == pieces[BlackKing] || playerPiece == pieces[WhiteKing]) { // Pieces that can move down
         //bottom left square
         it = gameBoard.find(std::make_pair(from.first - 1, from.second - 1));
         if(it != gameBoard.end()){
@@ -158,9 +135,11 @@ std::pair<char, char> findSingleSquareMoveAI(const std::map<std::pair<char, char
     }
     if(possibleMoves.size() == 0){
         return {'z', 'z'};
-    }else{
+    }else if(possibleMoves.size() == 2){
         int randomIndex = qrand() % possibleMoves.size();
         return possibleMoves.at(randomIndex);
+    }else{
+        return possibleMoves.at(0);
     }
 }
 

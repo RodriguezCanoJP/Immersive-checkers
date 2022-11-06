@@ -15,70 +15,7 @@ void emptyBoard(std::map<std::pair<char, char>, char> & gameBoard){
     }
     gameBoard = temp;
 }
-void customBoardEightPiecesEach(std::map<std::pair<char, char>, char> & gameBoard) {
-    std::map<std::pair<char, char>, char> temp;
-    char currentPiece = '0';
-    for (char y = '1'; y <= '8'; y++) {
-        if (y <= '2')
-            currentPiece = pieces[Black];
-        else if (y >= '7')
-            currentPiece = pieces[White];
-        else
-            currentPiece = pieces[Empty];
 
-        for (char x = 'a'; x <= 'h'; x++) {
-            if ((((y - 1) % 2) == 0) == (((x - 97) % 2) == 0)) { //XNOR to help with the diagonalness of the board
-                temp[std::make_pair(x, y)] = currentPiece;
-            }
-            //else -> not on board, so doesn't matter
-        }
-
-    }
-    gameBoard = temp;
-}
-//Custom board: 4 kings for each player.
-void customBoardAllKings(std::map<std::pair<char, char>, char> & gameBoard) {
-    std::map<std::pair<char, char>, char> temp;
-    char currentPiece = pieces[Empty];
-    for (char y = '1'; y <= '8'; y++) {
-        if (y == '1')
-            currentPiece = pieces[WhiteKing];
-        else if (y == '8')
-            currentPiece = pieces[BlackKing];
-        else
-            currentPiece = pieces[Empty];
-
-        for (char x = 'a'; x <= 'h'; x++) {
-            if ((((y - 1) % 2) == 0) == (((x - 97) % 2) == 0)) { //XNOR to help with the diagonalness of the board
-                temp[std::make_pair(x, y)] = currentPiece;
-            }
-            //else -> not on board, so doesn't matter
-        }
-    }
-    gameBoard = temp;
-}
-//Custom board, for testing the jumping algorithm
-void customBoardBigJumper(std::map<std::pair<char, char>, char> & gameBoard) {
-    std::map<std::pair<char, char>, char> temp;
-    for (char y = '1'; y <= '8'; y++) {
-        for (char x = 'a'; x <= 'h'; x++) {
-            if ((((y - 1) % 2) == 0) == (((x - 97) % 2) == 0)) { //XNOR to help with the diagonalness of the board
-                temp[std::make_pair(x, y)] = pieces[Empty];
-            }
-        }
-    }
-    temp.at({ 'a', '1'}) = pieces[Black];
-    temp.at({ 'f', '2' }) = pieces[Black];
-    temp.at({ 'f', '4' }) = pieces[Black];
-    temp.at({ 'f', '6' }) = pieces[Black];
-    temp.at({ 'd', '6' }) = pieces[Black];
-
-    temp.at({ 'g', '1' }) = pieces[White];
-
-    gameBoard = temp;
-}
-//Resets the given board to classic checkers beginning
-//3 rows of pieces (12 total pieces each)
 void resetBoard(std::map<std::pair<char, char>, char> & gameBoard) {
     std::map<std::pair<char, char>, char> temp;
     char currentPiece = '0';
@@ -100,31 +37,7 @@ void resetBoard(std::map<std::pair<char, char>, char> & gameBoard) {
     }
     gameBoard = temp;
 }
-//Depreciated: Prints board into console output
-void printBoard(const std::map<std::pair<char, char>, char> & gameBoard) {
-    std::ostringstream buf{};
-    std::cout << std::setw(14) << "Checkers" << std::endl;
-    buf << "  -------------------" << std::endl;
-    for (char y = '8'; y >= '1'; y--) {
-        buf << y << " |";
-        for (char x = 'a'; x <= 'h'; x++) {
-            //std::cout << x << " " << y << std::endl;
-            if ((((y - 1) % 2) == 0) == (((x - 97) % 2) == 0)) //XNOR to help with the diagonalness of the board
-                buf << " " << gameBoard.at({ x, y });
-            else {
-                buf << "  ";
-            }
-            //else -> not on board, so doesn't matter
-        }
-        buf << " |" << std::endl;
-    }
-    buf << "Y -------------------" << std::endl;
-    buf << "  X";
-    for (char x = 'a'; x <= 'h'; x++)
-        buf << ' ' << x;
-    buf << std::endl;
-    std::cout << buf.str();
-}
+
 std::vector<std::pair<char, char>> findPiecesRemaining(const int & player,
                                                        const std::map<std::pair<char, char>, char> & gameBoard) {
     std::vector<std::pair<char, char>> tokens;

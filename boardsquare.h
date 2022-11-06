@@ -156,7 +156,6 @@ private:
                         break;
                 }
             }
-            customBoardAddPiece(square, customEditingFlag); //adds piece to custom board
             update();
         }
     }

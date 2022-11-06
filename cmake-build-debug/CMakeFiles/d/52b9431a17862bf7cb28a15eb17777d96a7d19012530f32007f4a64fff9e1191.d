@@ -25,6 +25,8 @@ proyecto2_autogen/timestamp: \
   ../ai.cpp \
   ../ai.h \
   ../backdrop.h \
+  ../backtracking.cpp \
+  ../backtracking.h \
   ../boardpiece.h \
   ../boardsquare.h \
   ../checkersgame.cpp \

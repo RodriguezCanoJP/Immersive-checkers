@@ -14,7 +14,7 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(proyecto2 main.cpp boardsquare.h boardpiece.h checkersgame.h main.h ai.h ai.cpp backdrop.h checkersgame.cpp)
+add_executable(proyecto2 main.cpp boardsquare.h boardpiece.h checkersgame.h main.h ai.h ai.cpp backdrop.h checkersgame.cpp backtracking.h backtracking.cpp)
 target_link_libraries(proyecto2
         Qt5::Core
         Qt5::Gui
